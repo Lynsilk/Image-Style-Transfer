@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Image Style Transfer</title>  
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+    <script src="{{ url_for('static', filename='script.js') }}"></script>   
+</head>  
+<body>  
+    <div class="background"></div> 
+    <!--header-->
+    <div class="header">
+        <h1>风格迁移设计</h1>
+    </div>
+    <!--content-->
+    <div class="content"> 
+        <div class="image_view">  
+            <span class="text">Input Image</span> 
+            <img id="input-image" onload="this.parentNode.classList.add('loaded')">     <!--输入图片框-->  
+        </div>  
+        <div class="image_view">  
+            <span class="text">Output Image</span>
+            <img id="output-image" onload="this.parentNode.classList.add('loaded')">   <!--输出图片框-->  
+        </div>  
+    </div>  
+    <!--footer-->
+    <div class="footer">  
+        <form id="image-form" enctype="multipart/form-data">    <!--表单元素：提交发送数据-->  
+            <input type="file" name="image" id="image-upload" accept="image/*"><!--文件输入元素：选择上传图片-->  
+            <div class="style_transfer">
+                <select id="style_list" name="style_list">  <!--选项元素：选择风格-->
+                    <option value="ink">水墨风格</option>  
+                    <option value="sketch">素描风格</option>  
+                    <option value="cartoon">动漫风格</option>    
+                </select>  
+                <button type="button" id="apply-filter">开始迁移</button>   <!--按钮元素：触发迁移操作-->
+            </div>
+        </form>  
+    </div>  
+</body>  
+</html>   
+
+

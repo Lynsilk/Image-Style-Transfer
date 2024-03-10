@@ -1,0 +1,157 @@
+html,body{
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    font-size: 16px;
+}
+
+@media (max-width: 960px){  
+    html{  
+      font-size: 10px; /* 当视口宽度小于等于760px时，调整字体大小 */  
+    }  
+}  
+  
+@media (max-width: 720px){  
+    html{  
+      font-size: 6px; /* 当视口宽度小于等于480px时，调整字体大小 */  
+    }  
+}  
+
+.header{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 等距分布 */  
+    align-items: center; /* 垂直居中 */  
+}
+
+.header h1{
+    display: flex;
+    height: 100%;
+    margin: 0;
+    font-size: 36px;
+    justify-content: center; /* 水平居中 */  
+    align-items: center; /* 垂直居中 */ 
+    background: linear-gradient(30deg, hsl(100, 20%, 50%) 0%, hsl(160, 30%, 60%) 20%, hsl(200, 40%, 70%) 40%, hsl(240, 50%, 80%) 60%, hsl(280, 40%, 70%) 80%, hsl(320, 30%, 60%) 100%);  
+    -webkit-background-clip: text;  
+    background-clip: text;  
+    color: transparent; /* 文字颜色需要设置为透明 */   
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);  
+}
+
+.content{
+    height: 65%;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.image_view{  
+    width: 45%;  
+    height: 98%;
+    display: flex;
+    position: relative;
+    margin: auto;  
+    border-radius: 5px;
+    border: 3px solid #30303060;
+    background-color: rgba(255,255,255,0.8);
+    justify-content: center; /* 等距分布 */  
+    align-items: center; /* 垂直居中 */ 
+    opacity: 0.8;
+}
+
+.image_view img{
+    max-width: 100%;
+    max-height: 100%;
+    border: 3px solid rgba(255, 97, 97, 0.8);
+    object-fit:scale-down;  
+    opacity: 0; /* 初始时设置图片透明度为0，隐藏图片 */  
+    transition: opacity 1s ease; /* 添加过渡效果，使图片显示时更平滑 */
+}
+
+.image_view.loaded img {  
+    opacity: 1; /* 图片加载后，设置透明度为1，显示图片 */  
+}
+
+.image_view .text{
+    position: absolute;
+    top: 50%; /* 将文字向上移动自身高度的一半 */  
+    left: 50%; /* 将文字向左移动自身宽度的一半 */  
+    transform: translate(-50%, -50%); /* 使用transform属性来微调位置，确保文字完全居中 */  
+    color: #545454; /* 设置文字颜色 */  
+    font-size: 3rem; /* 等同于根元素的字体大小 */  
+    font-family: "Times New Roman"; /* 设置新罗马字体 */  
+    user-select: none; /* 禁止用户选择文本 */ 
+}
+
+.image_view.loaded .text {  
+    display: none; /* 图片加载完成后隐藏占位文字 */  
+}
+
+.footer{
+    height: 25%;
+    display: flex;
+    justify-content: space-around; /* 等距分布 */  
+    align-items: center; /* 垂直居中 */  
+}
+
+.footer input{
+    width: 28%;
+    background-color: rgba(100, 100, 100, 0.2);
+    margin-top: 1%;
+    border: 2px solid #f28888a8;    /*边框粗细+色彩*/
+    border-radius: 5px;              /*圆角*/  
+    font-size: 16px;                  /*字体大小*/
+    color: #ffffffa0;               /*字体颜色*/
+    padding-left: 1px;
+}
+
+.footer select{
+    background-color: rgba(85, 236, 151, 0.3);
+    margin-top: 5%;
+    padding: 3px;
+    font-size: 1em;
+    border-radius: 15px;
+}
+
+.footer button{
+    transition: background-color 0.3s ease; 
+    border: 2px solid #424242c8;    /*边框粗细+色彩*/
+    border-radius: 5px;
+}
+
+.footer button:active {  
+    /* 按钮被按下时的样式 */  
+    color: rgb(124, 124, 124);
+    background-color: #303030;  
+}
+
+.footer form{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around; /* 等距分布 */  
+    align-items:baseline;
+    border-radius: 10px;
+    background-color: rgba(200, 200, 200, 0.8);
+}
+
+.background{  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    z-index: -1;  
+}  
+    
+.background::before{  
+    content: "";  
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background: url('background.jpg') center/cover no-repeat;  
+    filter: blur(20px); /* 非常强烈的模糊效果，可以根据需要调整 */  
+    opacity: 0.9; /* 调整透明度以达到更好的雾化效果 */  
+}
